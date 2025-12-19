@@ -1,0 +1,19 @@
+{
+  "sample_size": 167,
+  "test_period_days": 7,
+  "use_mock_data": true,
+  "mape": 0.0026310306666805566,
+  "mape_percent": 0.26310306666805566,
+  "rmse": 169.7639350696406,
+  "mae": 136.11624783143617,
+  "coverage_rate": 1.0,
+  "coverage_percent": 100.0,
+  "avg_interval_width_percent": 1.999941754300395,
+  "avg_response_time": 0.1824208321802675,
+  "max_response_time": 0.34884847700595856,
+  "first_place_ready": false,
+  "mape_target_met": false,
+  "rmse_target_met": false,
+  "coverage_target_met": true,
+  "response_target_met": true
+}

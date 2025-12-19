@@ -1,0 +1,14 @@
+{
+  "sample_size": 167,
+  "test_period_days": 7,
+  "use_mock_data": 1,
+  "mape": 0.9999997249351873,
+  "mape_percent": 99.99997249351873,
+  "rmse": 51762.2670651404,
+  "mae": 51761.92834328699,
+  "coverage_rate": 0.0,
+  "coverage_percent": 0.0,
+  "avg_interval_width_percent": -0.0004002478446446134,
+  "avg_response_time": 4.373014039124368,
+  "max_response_time": 17.710116551956162,
+  "first_place_ready": 
