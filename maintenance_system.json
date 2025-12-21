@@ -1,0 +1,15 @@
+{
+  "daily_updates": {
+    "fresh_data_collection": "Every 6 hours",
+    "model_retraining": "Daily at 02:00 UTC",
+    "performance_evaluation": "Every 4 hours"
+  },
+  "retraining_triggers": {
+    "performance_drop": ">5% MAPE increase",
+    "competitor_surpass": "When others exceed your performance"
+  },
+  "alerts": {
+    "critical": "Performance drop >10%",
+    "warning": "Performance drop >5%"
+  }
+}

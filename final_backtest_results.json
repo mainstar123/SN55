@@ -1,0 +1,19 @@
+{
+  "backtest_timestamp": "2025-12-20T19:55:56.126431+00:00",
+  "model_performance": {
+    "mape": "1.497963",
+    "directional_accuracy": 0.395,
+    "test_samples": 200
+  },
+  "competitiveness": {
+    "improvement_over_baseline": "-46.14273",
+    "estimated_tao_per_prediction": 0,
+    "competitiveness_vs_miner221": 0.0,
+    "daily_tao_estimate": 0
+  },
+  "assessment": {
+    "status": "\ud83d\udd27 NEEDS IMPROVEMENT",
+    "readiness": "More optimization needed",
+    "deployment_recommended": "False"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "mape": "0.22157097",
+  "directional_accuracy": 1.0,
+  "improvement_percent": "78.38332",
+  "estimated_tao_per_prediction": "0.15568581",
+  "competitiveness_vs_miner221": "0.64935106",
+  "daily_tao_estimate": "22.418756",
+  "status": "\u26a0\ufe0f VERY GOOD - Strong contender!",
+  "recommendation": "Deploy and optimize!",
+  "model_saved": "miner221_domination_model.pth",
+  "features_count": 11,
+  "training_samples": 2091
+}

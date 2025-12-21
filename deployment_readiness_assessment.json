@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-12-20T20:08:35.404326+00:00",
+  "model": "retrained_domination_model.pth",
+  "performance": {
+    "mape": "166.96216",
+    "directional_accuracy": 0.664,
+    "test_samples": 500
+  },
+  "competitiveness": {
+    "improvement_over_baseline": "-16188.992",
+    "conservative_tao_per_prediction": 0.01,
+    "competitiveness_vs_miner221": 0.041709070888736884,
+    "daily_tao_estimate": 1.44
+  },
+  "deployment_assessment": {
+    "status": "\ud83d\udd27 NOT READY",
+    "readiness": "More optimization needed",
+    "expected_rank": "Outside top 200",
+    "confidence": "Low"
+  }
+}

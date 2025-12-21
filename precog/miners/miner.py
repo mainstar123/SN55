@@ -20,7 +20,18 @@ class Miner:
     """
 
     def __init__(self, config=None):
-        self.forward_module = importlib.import_module(f"precog.miners.{config.forward_function}")
+        # Use domination miner for #1 positioning
+        if hasattr(config, 'forward_function') and config.forward_function == 'custom_model':
+            bt.logging.info("🏆 ACTIVATING DOMINATION MINER - Target: #1 Position")
+            # Check for domination mode environment variable
+            import os
+            if os.getenv('DOMINATION_MODE', 'false').lower() == 'true':
+                bt.logging.info("⚡ DOMINATION MODE ENABLED - Becoming #1!")
+                self.forward_module = importlib.import_module("precog.miners.standalone_domination")
+            else:
+                self.forward_module = importlib.import_module("precog.miners.domination_miner")
+        else:
+            self.forward_module = importlib.import_module(f"precog.miners.{config.forward_function}")
         self.config = config
         self.config.neuron.type = "Miner"
         setup_bittensor_objects(self)

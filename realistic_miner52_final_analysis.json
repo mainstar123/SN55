@@ -1,0 +1,65 @@
+{
+  "analysis_timestamp": "2025-12-20T18:01:05.810615",
+  "miner52_performance": {
+    "run_11t39nhr": {
+      "name": "Peak Performance Run",
+      "daily_tao": 0.71,
+      "mape": 0.41
+    },
+    "run_bemrn00a": {
+      "name": "Stable Operation Run",
+      "daily_tao": 0.62,
+      "mape": 0.48
+    },
+    "run_srg3633h": {
+      "name": "Market Stress Test",
+      "daily_tao": 0.78,
+      "mape": 0.35
+    },
+    "run_2f04nm44": {
+      "name": "Ranging Market Run",
+      "daily_tao": 0.51,
+      "mape": 0.57
+    }
+  },
+  "miner52_aggregates": {
+    "avg_daily_tao": 0.655,
+    "avg_mape": 0.4524999999999999,
+    "best_daily_tao": 0.78,
+    "worst_daily_tao": 0.51
+  },
+  "our_projections": {
+    "conservative": {
+      "daily_tao": 0.45849999999999996,
+      "mape": 0.5429999999999998,
+      "confidence": "HIGH"
+    },
+    "realistic": {
+      "daily_tao": 0.5895,
+      "mape": 0.4977499999999999,
+      "confidence": "MEDIUM"
+    },
+    "optimistic": {
+      "daily_tao": 0.7205000000000001,
+      "mape": 0.40724999999999995,
+      "confidence": "LOW"
+    }
+  },
+  "comparison": {
+    "our_realistic_daily_tao": 0.5895,
+    "miner52_avg_daily_tao": 0.655,
+    "gap_vs_avg": -0.0655,
+    "performance_ratio": 0.9
+  },
+  "domination_analysis": {
+    "total_score": 70.0,
+    "grade": "B+ (Very Good)",
+    "earnings_score": 45.0,
+    "accuracy_score": 0,
+    "consistency_score": 15,
+    "features_score": 10
+  },
+  "verdict": "\ud83d\udfe1 COMPETITIVE POSITION!",
+  "recommended_action": "\u2705 DEPLOY WITH MONITORING",
+  "position_target": "Top 10 (competitive)"
+}

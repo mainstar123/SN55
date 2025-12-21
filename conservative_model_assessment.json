@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-12-20T20:10:26.150886+00:00",
+  "model": "conservative_deployment_model.pth",
+  "performance": {
+    "mape": "1.0566356",
+    "directional_accuracy": 0.54,
+    "validation_samples": 50
+  },
+  "earnings": {
+    "estimated_tao_per_prediction": 0.005,
+    "competitiveness_vs_miner221": 0.020854535444368442,
+    "daily_tao_estimate": 0.72
+  },
+  "assessment": {
+    "status": "\ud83d\udd27 STILL NEEDS WORK",
+    "action": "Further optimization required",
+    "confidence": "Low to Medium"
+  }
+}

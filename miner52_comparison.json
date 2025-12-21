@@ -1,0 +1,27 @@
+{
+  "miner52_performance": {
+    "avg_reward_per_prediction": 0.21768037928459785,
+    "daily_tao_estimate": 31.34597461698209,
+    "weekly_tao_estimate": 219.42182231887463,
+    "monthly_tao_estimate": 940.3792385094628,
+    "avg_accuracy": 0.8346676142147175,
+    "avg_response_time": 0,
+    "total_predictions": 5330,
+    "data_source": "simulated"
+  },
+  "our_model_performance": {
+    "mape": 1.0249634185302137,
+    "mae": 1.4692303204922,
+    "predictions_made": 10,
+    "model_type": "Original Ensemble"
+  },
+  "comparison": {
+    "miner52_avg_reward": 0.21768037928459785,
+    "our_estimated_reward": 0,
+    "performance_ratio": 217.68037928459785,
+    "our_daily_tao_estimate": 0,
+    "improvement_needed_tao_per_prediction": 0.21768037928459785,
+    "confidence_level": "high",
+    "data_quality": "simulated"
+  }
+}

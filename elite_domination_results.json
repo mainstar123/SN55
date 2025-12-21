@@ -1,0 +1,16 @@
+{
+  "model_performance": {
+    "mape": 0.015,
+    "directional_accuracy": 0.75,
+    "estimated_tao_per_prediction": 0.18
+  },
+  "training_info": {
+    "model_type": "ensemble_domination",
+    "features": 24,
+    "architecture": "GRU_Transformer_Ensemble",
+    "domination_features": true
+  },
+  "deployment_ready": true,
+  "generated_from": "backtest_results_20251219_133015.json",
+  "timestamp": "2025-12-21T12:20:52.582445"
+}

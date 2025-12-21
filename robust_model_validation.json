@@ -1,0 +1,35 @@
+{
+  "timestamp": "2025-12-20T20:26:39.798567+00:00",
+  "model": "robust_deployment_model.pth",
+  "performance": {
+    "mape": "1.34385",
+    "rmse": "0.15371124",
+    "directional_accuracy": 0.6633333333333333,
+    "test_samples": 300,
+    "improvement_over_baseline": 0
+  },
+  "competitiveness": {
+    "estimated_tao_per_prediction": 0.03266666666666667,
+    "competitiveness_vs_miner221": 0.13624963156987382,
+    "daily_tao_estimate": 4.704000000000001
+  },
+  "validation_method": "temporal_cross_validation",
+  "features_used": [
+    "close_norm",
+    "volume_norm",
+    "high_norm",
+    "low_norm",
+    "momentum_1",
+    "momentum_5",
+    "momentum_10",
+    "volatility_5",
+    "rsi",
+    "volume_momentum_3"
+  ],
+  "assessment": {
+    "status": "\u26a0\ufe0f MARGINALLY READY",
+    "confidence": "Medium",
+    "action": "Deploy with caution, monitor closely",
+    "deployment_recommended": "True"
+  }
+}

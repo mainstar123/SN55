@@ -1,0 +1,44 @@
+{
+  "analysis_timestamp": "2025-12-20T14:52:36.018201",
+  "uid79_analysis": {
+    "total_runs": 4,
+    "avg_reward_across_runs": 0.1601519112053605,
+    "best_run_reward": 0.16081276822139692,
+    "worst_run_reward": 0.1594537673775901,
+    "reward_std_across_runs": 0.0006219838981204493,
+    "avg_response_time": 0.12076594153382171,
+    "avg_accuracy": 0.9401255732886707,
+    "avg_uptime": 0.9949385754012761,
+    "peak_hour_performance": 0.193019678381046,
+    "normal_hour_performance": 0.14904382322468895,
+    "peak_hour_advantage": 0.29528095708591606,
+    "total_tao_analyzed": 185.13560935339672,
+    "avg_tao_per_hour": 1.9284959307645493,
+    "performance_range": "0.159 - 0.161 TAO"
+  },
+  "domination_projections": {
+    "avg_reward": 0.15,
+    "peak_hour_performance": 0.195,
+    "normal_hour_performance": 0.1,
+    "avg_response_time": 0.14,
+    "avg_accuracy": 0.92,
+    "avg_uptime": 0.99,
+    "peak_hour_advantage": 0.5,
+    "avg_tao_per_hour": 2.016
+  },
+  "comparison_insights": [
+    "\u26a0\ufe0f UID 79 has 0.0102 TAO advantage - needs optimization",
+    ".1f",
+    ".3f"
+  ],
+  "recommendations": [
+    "\ud83c\udfaf Deploy domination model to mainnet immediately",
+    "\ud83d\udcca Monitor first 24 hours closely for performance validation",
+    "\ud83d\udd27 Adjust ensemble weights based on live performance data",
+    "\u26a1 Optimize peak hour timing for maximum reward capture",
+    "\ud83d\udcc8 Implement continuous learning from UID 79's patterns",
+    "\ud83c\udfaa Expand technical indicators based on successful patterns",
+    "\ud83d\ude80 Consider additional model architectures if needed",
+    "\ud83c\udfc6 Target surpassing UID 79 within 48 hours of deployment"
+  ]
+}

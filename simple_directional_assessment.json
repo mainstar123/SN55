@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-12-20T20:28:19.246966+00:00",
+  "model": "simple_directional_model.pth",
+  "performance": {
+    "directional_accuracy": 0.496,
+    "precision": 0.496,
+    "recall": 1.0,
+    "test_samples": 500
+  },
+  "earnings": {
+    "estimated_tao_per_prediction": 0.00019999999999999922,
+    "competitiveness_vs_miner221": 0.0008341814177747344,
+    "daily_tao_estimate": 0.028799999999999888,
+    "weekly_tao_estimate": 0.20159999999999922
+  },
+  "assessment": {
+    "status": "\ud83d\udd27 NOT READY",
+    "confidence": "Low",
+    "expected_rank": "Outside top 300",
+    "action": "Needs improvement",
+    "ready_for_deployment": "False"
+  },
+  "model_characteristics": {
+    "type": "binary_directional_classifier",
+    "features": [
+      "close_norm",
+      "volume_norm"
+    ],
+    "sequence_length": 10,
+    "architecture": "simplified_attention"
+  }
+}

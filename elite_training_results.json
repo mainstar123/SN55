@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-12-20T20:08:06.273919+00:00",
+  "performance": {
+    "mape": "18.235483",
+    "directional_accuracy": 0.31,
+    "validation_samples": 100
+  },
+  "data_stats": {
+    "total_sequences": 3680,
+    "symbols": 8,
+    "features_count": 11
+  },
+  "model_ready": "False"
+}

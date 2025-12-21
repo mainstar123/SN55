@@ -1,0 +1,13 @@
+{
+  "mape": "0.4001776",
+  "directional_accuracy": 0.75,
+  "improvement_percent": "60.958282",
+  "estimated_tao_per_prediction": "0.11996448",
+  "competitiveness_vs_miner221": "0.50036067",
+  "daily_tao_estimate": "17.274885",
+  "status": "\u26a0\ufe0f GOOD - Strong foundation!",
+  "model_saved": "fixed_superior_model.pth",
+  "normalization_applied": true,
+  "sequence_length": 30,
+  "features_count": 7
+}

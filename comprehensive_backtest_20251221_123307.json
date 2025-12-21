@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-12-21T12:33:07.005672",
+  "model_version": "elite_domination_v1",
+  "performance": {
+    "mape": 0.0037822271072835167,
+    "mape_percent": 0.3782227107283517,
+    "rmse": 263.3768148541091,
+    "mae": 207.88617207447973,
+    "directional_accuracy": 0.8798004987531172,
+    "sharpe_ratio": 0.002892090056463238,
+    "max_drawdown": 0.11694620136508144,
+    "sample_size": 8021,
+    "test_period_days": 30
+  },
+  "domination_targets": {
+    "mape_target_met": "True",
+    "accuracy_target_met": "True",
+    "overall_ready": true
+  },
+  "market_conditions": {
+    "avg_price": 55010.287848738524,
+    "volatility": 0.014735748714737505,
+    "trend": "bull",
+    "test_period": "30 days hourly"
+  },
+  "estimated_tao_per_prediction": 0.27515777880247655,
+  "miner31_comparison": {
+    "miner31_avg_reward": 0.1,
+    "your_estimated_reward": 0.27515777880247655,
+    "improvement_percentage": 175.15777880247654
+  }
+}

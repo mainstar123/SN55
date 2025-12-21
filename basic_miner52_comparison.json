@@ -1,0 +1,54 @@
+{
+  "timestamp": "2025-12-20T17:56:15.894704",
+  "miner52_performance": [
+    {
+      "name": "Peak Performance",
+      "daily_tao": 0.71,
+      "mape": 0.41,
+      "accuracy": 0.81
+    },
+    {
+      "name": "Stable Operation",
+      "daily_tao": 0.62,
+      "mape": 0.48,
+      "accuracy": 0.76
+    },
+    {
+      "name": "Market Stress Test",
+      "daily_tao": 0.78,
+      "mape": 0.35,
+      "accuracy": 0.85
+    },
+    {
+      "name": "Ranging Market",
+      "daily_tao": 0.51,
+      "mape": 0.57,
+      "accuracy": 0.71
+    }
+  ],
+  "miner52_aggregates": {
+    "avg_daily_tao": 0.655,
+    "avg_mape": 0.4524999999999999
+  },
+  "our_performance": {
+    "original_ensemble": {
+      "mape": 0.988945858745374,
+      "mae": 1.4944419158635653,
+      "total_predictions": 10,
+      "avg_prediction": -0.02053349167108536,
+      "avg_actual": 0.6653941560273708,
+      "estimated_daily_tao": 0.0038203112175987466
+    },
+    "attention_ensemble": {
+      "mape": 0.9919702639061146,
+      "mae": 1.5062162810949602,
+      "total_predictions": 10,
+      "avg_prediction": -0.07451163232326508,
+      "avg_actual": 0.6653941560273708,
+      "estimated_daily_tao": 0.0027750767940467776
+    }
+  },
+  "best_model": "original_ensemble",
+  "domination_score": 20.291626810503722,
+  "grade": "D (Needs Work)"
+}

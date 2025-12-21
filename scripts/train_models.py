@@ -491,18 +491,18 @@ def hyperparameter_tuning():
     # Define hyperparameter search space
     gru_configs = [
         # Architecture variations
-        {'input_size': 10, 'hidden_size': 128, 'num_layers': 3, 'dropout': 0.3, 'learning_rate': 0.0005, 'batch_size': 32, 'epochs': 150, 'early_stopping_patience': 15},
-        {'input_size': 10, 'hidden_size': 256, 'num_layers': 2, 'dropout': 0.4, 'learning_rate': 0.0001, 'batch_size': 16, 'epochs': 200, 'early_stopping_patience': 20},
-        {'input_size': 10, 'hidden_size': 64, 'num_layers': 4, 'dropout': 0.2, 'learning_rate': 0.001, 'batch_size': 64, 'epochs': 100, 'early_stopping_patience': 10},
-        {'input_size': 10, 'hidden_size': 128, 'num_layers': 2, 'dropout': 0.1, 'learning_rate': 0.0003, 'batch_size': 32, 'epochs': 120, 'early_stopping_patience': 12},
+        {'input_size': 24, 'hidden_size': 128, 'num_layers': 3, 'dropout': 0.3, 'learning_rate': 0.0005, 'batch_size': 32, 'epochs': 150, 'early_stopping_patience': 15},
+        {'input_size': 24, 'hidden_size': 256, 'num_layers': 2, 'dropout': 0.4, 'learning_rate': 0.0001, 'batch_size': 16, 'epochs': 200, 'early_stopping_patience': 20},
+        {'input_size': 24, 'hidden_size': 64, 'num_layers': 4, 'dropout': 0.2, 'learning_rate': 0.001, 'batch_size': 64, 'epochs': 100, 'early_stopping_patience': 10},
+        {'input_size': 24, 'hidden_size': 128, 'num_layers': 2, 'dropout': 0.1, 'learning_rate': 0.0003, 'batch_size': 32, 'epochs': 120, 'early_stopping_patience': 12},
     ]
 
     interval_configs = [
         # More aggressive learning for interval prediction
-        {'input_size': 10, 'hidden_size': 64, 'num_layers': 3, 'dropout': 0.3, 'learning_rate': 0.001, 'batch_size': 32, 'epochs': 200, 'early_stopping_patience': 20},
-        {'input_size': 10, 'hidden_size': 128, 'num_layers': 2, 'dropout': 0.4, 'learning_rate': 0.0005, 'batch_size': 16, 'epochs': 150, 'early_stopping_patience': 15},
-        {'input_size': 10, 'hidden_size': 32, 'num_layers': 4, 'dropout': 0.2, 'learning_rate': 0.002, 'batch_size': 64, 'epochs': 100, 'early_stopping_patience': 10},
-        {'input_size': 10, 'hidden_size': 96, 'num_layers': 2, 'dropout': 0.25, 'learning_rate': 0.0008, 'batch_size': 32, 'epochs': 120, 'early_stopping_patience': 12},
+        {'input_size': 24, 'hidden_size': 64, 'num_layers': 3, 'dropout': 0.3, 'learning_rate': 0.001, 'batch_size': 32, 'epochs': 200, 'early_stopping_patience': 20},
+        {'input_size': 24, 'hidden_size': 128, 'num_layers': 2, 'dropout': 0.4, 'learning_rate': 0.0005, 'batch_size': 16, 'epochs': 150, 'early_stopping_patience': 15},
+        {'input_size': 24, 'hidden_size': 32, 'num_layers': 4, 'dropout': 0.2, 'learning_rate': 0.002, 'batch_size': 64, 'epochs': 100, 'early_stopping_patience': 10},
+        {'input_size': 24, 'hidden_size': 96, 'num_layers': 2, 'dropout': 0.25, 'learning_rate': 0.0008, 'batch_size': 32, 'epochs': 120, 'early_stopping_patience': 12},
     ]
 
     # Fetch data once
@@ -598,18 +598,18 @@ def main():
         }
         logger.info("Using Enhanced GRU with attention mechanism")
     else:
-        gru_config = {
+    gru_config = {
             'model_class': GRUPriceForecaster,
-            'input_size': 25 if args.advanced_features else 10,
+            'input_size': 24 if args.advanced_features else 10,
             'hidden_size': 128,
-            'num_layers': 2,
+        'num_layers': 2,
             'dropout': 0.3,
             'learning_rate': 0.0001,
             'batch_size': 32,
-            'epochs': 100,
+        'epochs': 100,
             'early_stopping_patience': 10,
             'gradient_clip': 1.0
-        }
+    }
         logger.info("Using Standard GRU model")
 
     quantile_config = {
@@ -716,7 +716,7 @@ def main():
 
         # Save the working GRU model
         try:
-            os.rename('models/gru_point_temp.pth', 'models/gru_point.pth')
+        os.rename('models/gru_point_temp.pth', 'models/gru_point.pth')
             logger.info("GRU point forecasting model saved successfully")
         except FileNotFoundError:
             logger.error("No GRU model to save")

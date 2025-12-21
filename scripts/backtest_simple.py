@@ -560,13 +560,13 @@ def load_models():
 
         # Try to load interval model (may fail due to architecture issues)
         try:
-            if os.path.exists('models/quantile_interval.pth'):
+        if os.path.exists('models/quantile_interval.pth'):
                 interval_model = QuantileIntervalForecaster()
-                checkpoint = torch.load('models/quantile_interval.pth', map_location='cpu')
-                interval_model.load_state_dict(checkpoint)
-                interval_model.eval()
-                logger.info("Loaded quantile interval model")
-            else:
+            checkpoint = torch.load('models/quantile_interval.pth', map_location='cpu')
+            interval_model.load_state_dict(checkpoint)
+            interval_model.eval()
+            logger.info("Loaded quantile interval model")
+        else:
                 logger.warning("No trained interval model found - using dummy intervals")
         except Exception as e:
             logger.warning(f"Failed to load interval model ({e}) - using dummy intervals")

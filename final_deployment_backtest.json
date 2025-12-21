@@ -1,0 +1,39 @@
+{
+  "timestamp": "2025-12-20T20:27:12.997719+00:00",
+  "model": "robust_deployment_model.pth",
+  "backtest_type": "multi_symbol_fresh_data",
+  "performance": {
+    "mape": "1005.0701",
+    "rmse": "0.16987367",
+    "mae": "0.1496409",
+    "directional_accuracy": 0.558,
+    "test_samples": 500,
+    "test_symbols": [
+      "BTC",
+      "ETH",
+      "ADA"
+    ]
+  },
+  "competitiveness": {
+    "improvement_over_baseline": 0,
+    "estimated_tao_per_prediction": 0.014500000000000013,
+    "competitiveness_vs_miner221": 0.060478152788668534,
+    "daily_tao_estimate": 2.088000000000002,
+    "weekly_tao_estimate": 14.616000000000014,
+    "monthly_tao_estimate": 62.64000000000006
+  },
+  "deployment_assessment": {
+    "status": "\ud83d\udd27 NOT READY",
+    "confidence": "Low",
+    "expected_rank": "Outside top 200",
+    "action": "Further optimization needed",
+    "ready_for_deployment": "False"
+  },
+  "issues_fixed": [
+    "Data distribution mismatch",
+    "Overfitting prevention",
+    "Robust feature engineering",
+    "Simplified architecture",
+    "Temporal cross-validation"
+  ]
+}
