@@ -1,0 +1,424 @@
+{
+  "pipeline_execution": {
+    "timestamp": "2025-12-22T13:34:29.896155",
+    "target_accuracy": 0.9,
+    "phases_completed": 3,
+    "supremacy_achieved": false
+  },
+  "best_hyperparameters": {},
+  "optimization_results": {
+    "best_params": {},
+    "best_score": 0.0,
+    "optimization_history": [
+      {
+        "params": {
+          "hidden_size": 128,
+          "num_layers": 3,
+          "dropout": 0.2,
+          "num_heads": 8,
+          "learning_rate": 0.001,
+          "batch_size": 32,
+          "weight_decay": 0.0001,
+          "gru_weight": 0.4,
+          "transformer_weight": 0.4,
+          "cnn_weight": 0.3,
+          "confidence_threshold": 0.7,
+          "quality_threshold": 0.6,
+          "dynamic_threshold_weight": 0.5
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 1,
+        "timestamp": "2025-12-22T13:34:29.842294"
+      },
+      {
+        "params": {
+          "hidden_size": 256,
+          "num_layers": 4,
+          "dropout": 0.1,
+          "num_heads": 16,
+          "learning_rate": 0.0005,
+          "batch_size": 16,
+          "weight_decay": 1e-05,
+          "gru_weight": 0.3,
+          "transformer_weight": 0.5,
+          "cnn_weight": 0.2,
+          "confidence_threshold": 0.8,
+          "quality_threshold": 0.7,
+          "dynamic_threshold_weight": 0.3
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 2,
+        "timestamp": "2025-12-22T13:34:29.868163"
+      },
+      {
+        "params": {
+          "hidden_size": 128,
+          "num_layers": 2,
+          "dropout": 0.3,
+          "num_heads": 8,
+          "learning_rate": 0.001,
+          "batch_size": 64,
+          "weight_decay": 0,
+          "gru_weight": 0.5,
+          "transformer_weight": 0.3,
+          "cnn_weight": 0.2,
+          "confidence_threshold": 0.6,
+          "quality_threshold": 0.5,
+          "dynamic_threshold_weight": 0.7
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 3,
+        "timestamp": "2025-12-22T13:34:29.881971"
+      },
+      {
+        "params": {
+          "hidden_size": "128",
+          "num_layers": "4",
+          "dropout": 0.1,
+          "num_heads": "4",
+          "learning_rate": 0.0005,
+          "batch_size": "16",
+          "weight_decay": 0.0001,
+          "gru_weight": 0.3,
+          "transformer_weight": 0.5,
+          "cnn_weight": 0.4,
+          "confidence_threshold": 0.8,
+          "quality_threshold": 0.6,
+          "dynamic_threshold_weight": 0.3
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 4,
+        "timestamp": "2025-12-22T13:34:29.882104"
+      },
+      {
+        "params": {
+          "hidden_size": "128",
+          "num_layers": "3",
+          "dropout": 0.3,
+          "num_heads": "4",
+          "learning_rate": 0.0005,
+          "batch_size": "16",
+          "weight_decay": 0.0001,
+          "gru_weight": 0.3,
+          "transformer_weight": 0.3,
+          "cnn_weight": 0.4,
+          "confidence_threshold": 0.7,
+          "quality_threshold": 0.5,
+          "dynamic_threshold_weight": 0.7
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 5,
+        "timestamp": "2025-12-22T13:34:29.882194"
+      },
+      {
+        "params": {
+          "hidden_size": "64",
+          "num_layers": "4",
+          "dropout": 0.3,
+          "num_heads": "16",
+          "learning_rate": 0.0005,
+          "batch_size": "16",
+          "weight_decay": 0.0001,
+          "gru_weight": 0.5,
+          "transformer_weight": 0.4,
+          "cnn_weight": 0.4,
+          "confidence_threshold": 0.7,
+          "quality_threshold": 0.6,
+          "dynamic_threshold_weight": 0.3
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 6,
+        "timestamp": "2025-12-22T13:34:29.882271"
+      },
+      {
+        "params": {
+          "hidden_size": "64",
+          "num_layers": "4",
+          "dropout": 0.2,
+          "num_heads": "8",
+          "learning_rate": 0.0001,
+          "batch_size": "16",
+          "weight_decay": 0.0001,
+          "gru_weight": 0.4,
+          "transformer_weight": 0.4,
+          "cnn_weight": 0.4,
+          "confidence_threshold": 0.7,
+          "quality_threshold": 0.7,
+          "dynamic_threshold_weight": 0.7
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 7,
+        "timestamp": "2025-12-22T13:34:29.882348"
+      },
+      {
+        "params": {
+          "hidden_size": "128",
+          "num_layers": "3",
+          "dropout": 0.1,
+          "num_heads": "8",
+          "learning_rate": 0.0001,
+          "batch_size": "64",
+          "weight_decay": 1e-05,
+          "gru_weight": 0.4,
+          "transformer_weight": 0.4,
+          "cnn_weight": 0.2,
+          "confidence_threshold": 0.6,
+          "quality_threshold": 0.7,
+          "dynamic_threshold_weight": 0.7
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 8,
+        "timestamp": "2025-12-22T13:34:29.882427"
+      },
+      {
+        "params": {
+          "hidden_size": "128",
+          "num_layers": "3",
+          "dropout": 0.3,
+          "num_heads": "8",
+          "learning_rate": 0.0005,
+          "batch_size": "64",
+          "weight_decay": 1e-05,
+          "gru_weight": 0.5,
+          "transformer_weight": 0.5,
+          "cnn_weight": 0.4,
+          "confidence_threshold": 0.7,
+          "quality_threshold": 0.7,
+          "dynamic_threshold_weight": 0.3
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 9,
+        "timestamp": "2025-12-22T13:34:29.882504"
+      },
+      {
+        "params": {
+          "hidden_size": "128",
+          "num_layers": "2",
+          "dropout": 0.1,
+          "num_heads": "16",
+          "learning_rate": 0.0005,
+          "batch_size": "16",
+          "weight_decay": 1e-05,
+          "gru_weight": 0.5,
+          "transformer_weight": 0.4,
+          "cnn_weight": 0.3,
+          "confidence_threshold": 0.8,
+          "quality_threshold": 0.6,
+          "dynamic_threshold_weight": 0.3
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 10,
+        "timestamp": "2025-12-22T13:34:29.882574"
+      },
+      {
+        "params": {
+          "hidden_size": "64",
+          "num_layers": "2",
+          "dropout": 0.1,
+          "num_heads": "4",
+          "learning_rate": 0.001,
+          "batch_size": "16",
+          "weight_decay": 1e-05,
+          "gru_weight": 0.5,
+          "transformer_weight": 0.5,
+          "cnn_weight": 0.3,
+          "confidence_threshold": 0.7,
+          "quality_threshold": 0.7,
+          "dynamic_threshold_weight": 0.5
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 11,
+        "timestamp": "2025-12-22T13:34:29.882644"
+      },
+      {
+        "params": {
+          "hidden_size": "128",
+          "num_layers": "2",
+          "dropout": 0.2,
+          "num_heads": "16",
+          "learning_rate": 0.0005,
+          "batch_size": "32",
+          "weight_decay": 0.0,
+          "gru_weight": 0.4,
+          "transformer_weight": 0.3,
+          "cnn_weight": 0.2,
+          "confidence_threshold": 0.7,
+          "quality_threshold": 0.6,
+          "dynamic_threshold_weight": 0.3
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 12,
+        "timestamp": "2025-12-22T13:34:29.882713"
+      },
+      {
+        "params": {
+          "hidden_size": "256",
+          "num_layers": "3",
+          "dropout": 0.3,
+          "num_heads": "4",
+          "learning_rate": 0.0005,
+          "batch_size": "64",
+          "weight_decay": 0.0001,
+          "gru_weight": 0.3,
+          "transformer_weight": 0.3,
+          "cnn_weight": 0.3,
+          "confidence_threshold": 0.6,
+          "quality_threshold": 0.7,
+          "dynamic_threshold_weight": 0.7
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 13,
+        "timestamp": "2025-12-22T13:34:29.882782"
+      },
+      {
+        "params": {
+          "hidden_size": "64",
+          "num_layers": "3",
+          "dropout": 0.2,
+          "num_heads": "4",
+          "learning_rate": 0.0005,
+          "batch_size": "64",
+          "weight_decay": 0.0001,
+          "gru_weight": 0.3,
+          "transformer_weight": 0.3,
+          "cnn_weight": 0.2,
+          "confidence_threshold": 0.7,
+          "quality_threshold": 0.6,
+          "dynamic_threshold_weight": 0.5
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 14,
+        "timestamp": "2025-12-22T13:34:29.882893"
+      },
+      {
+        "params": {
+          "hidden_size": "128",
+          "num_layers": "2",
+          "dropout": 0.3,
+          "num_heads": "4",
+          "learning_rate": 0.0001,
+          "batch_size": "64",
+          "weight_decay": 1e-05,
+          "gru_weight": 0.3,
+          "transformer_weight": 0.5,
+          "cnn_weight": 0.2,
+          "confidence_threshold": 0.6,
+          "quality_threshold": 0.7,
+          "dynamic_threshold_weight": 0.3
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 15,
+        "timestamp": "2025-12-22T13:34:29.882968"
+      },
+      {
+        "params": {
+          "hidden_size": "128",
+          "num_layers": "3",
+          "dropout": 0.2,
+          "num_heads": "8",
+          "learning_rate": 0.001,
+          "batch_size": "16",
+          "weight_decay": 0.0,
+          "gru_weight": 0.3,
+          "transformer_weight": 0.4,
+          "cnn_weight": 0.2,
+          "confidence_threshold": 0.7,
+          "quality_threshold": 0.6,
+          "dynamic_threshold_weight": 0.7
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 16,
+        "timestamp": "2025-12-22T13:34:29.883040"
+      },
+      {
+        "params": {
+          "hidden_size": "128",
+          "num_layers": "3",
+          "dropout": 0.1,
+          "num_heads": "8",
+          "learning_rate": 0.0005,
+          "batch_size": "16",
+          "weight_decay": 0.0001,
+          "gru_weight": 0.3,
+          "transformer_weight": 0.4,
+          "cnn_weight": 0.2,
+          "confidence_threshold": 0.6,
+          "quality_threshold": 0.7,
+          "dynamic_threshold_weight": 0.5
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 17,
+        "timestamp": "2025-12-22T13:34:29.883110"
+      },
+      {
+        "params": {
+          "hidden_size": "256",
+          "num_layers": "3",
+          "dropout": 0.3,
+          "num_heads": "8",
+          "learning_rate": 0.001,
+          "batch_size": "16",
+          "weight_decay": 0.0001,
+          "gru_weight": 0.3,
+          "transformer_weight": 0.5,
+          "cnn_weight": 0.3,
+          "confidence_threshold": 0.7,
+          "quality_threshold": 0.6,
+          "dynamic_threshold_weight": 0.7
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 18,
+        "timestamp": "2025-12-22T13:34:29.883180"
+      },
+      {
+        "params": {
+          "hidden_size": "128",
+          "num_layers": "3",
+          "dropout": 0.3,
+          "num_heads": "4",
+          "learning_rate": 0.0005,
+          "batch_size": "64",
+          "weight_decay": 1e-05,
+          "gru_weight": 0.4,
+          "transformer_weight": 0.4,
+          "cnn_weight": 0.3,
+          "confidence_threshold": 0.8,
+          "quality_threshold": 0.6,
+          "dynamic_threshold_weight": 0.3
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 19,
+        "timestamp": "2025-12-22T13:34:29.883250"
+      },
+      {
+        "params": {
+          "hidden_size": "256",
+          "num_layers": "3",
+          "dropout": 0.1,
+          "num_heads": "16",
+          "learning_rate": 0.0001,
+          "batch_size": "16",
+          "weight_decay": 0.0001,
+          "gru_weight": 0.3,
+          "transformer_weight": 0.3,
+          "cnn_weight": 0.3,
+          "confidence_threshold": 0.6,
+          "quality_threshold": 0.7,
+          "dynamic_threshold_weight": 0.5
+        },
+        "directional_accuracy": 0.0,
+        "evaluation_number": 20,
+        "timestamp": "2025-12-22T13:34:29.883320"
+      }
+    ],
+    "target_achieved": false
+  },
+  "training_history": [],
+  "final_model_info": {
+    "type": "ConfidenceWeightedEnsemble",
+    "architecture": "GRU+Transformer+CNN with attention fusion",
+    "confidence_weighting": true,
+    "market_regime_detection": true,
+    "dynamic_thresholding": true
+  }
+}
