@@ -1,0 +1,14 @@
+2026-01-06 18:35:00.123 | INFO  | Processing synapse: Challenge(
+    timeout=12.0, 
+    metagraph=Metagraph(...), 
+    sample=Sample(...),
+    sample_uids=[142, 45, 78, 23]  # Your UID 142 included!
+)
+
+2026-01-06 18:35:00.456 | INFO  | Miner | UID:142 | Block:7264000 | Stake:0.236 | Trust:0.150 | Incentive:0.008 | Emission:0.245
+2026-01-06 18:35:00.567 | INFO  | 🎯 Processing prediction request for BTC
+2026-01-06 18:35:00.678 | INFO  | 🚀 GPU inference: 45ms latency
+2026-01-06 18:35:00.789 | INFO  | ✅ Response sent successfully
+
+2026-01-06 18:35:05.123 | INFO  | Processing synapse: Challenge(timeout=12.0, ...)
+2026-01-06 18:35:05.456 | INFO  | Miner | UID:142 | Block:7264001 | Stake:0.236 | Trust:0.152 | Incentive:0.008 | Emission:0.248

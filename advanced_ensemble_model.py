@@ -343,6 +343,11 @@ def load_advanced_ensemble(model_path: str, device: str = 'cpu') -> AdvancedEnse
     """Load trained advanced ensemble model"""
     model = create_advanced_ensemble()
     try:
+        # Handle PyTorch 2.6+ weights_only security changes
+        try:
+            checkpoint = torch.load(model_path, map_location=device, weights_only=False)
+        except TypeError:
+            # Fallback for older PyTorch versions
         checkpoint = torch.load(model_path, map_location=device)
         model.load_state_dict(checkpoint['model_state_dict'])
 

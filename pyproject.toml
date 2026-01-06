@@ -22,6 +22,8 @@ setuptools = "~70.0.0"
 numpy = "~2.0.1"
 pydantic = "^2.3.0"
 requests = "^2.32.3"
+torch = {version = "^2.0.0", source = "pypi"}
+torchvision = "^0.15.0"
 
 # Subnet Specific Dependencies
 coinmetrics-api-client = "^2025.8.15.15"

@@ -15,7 +15,7 @@ import argparse
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # Import domination system components
-from advanced_ensemble_model import load_advanced_ensemble
+from simple_working_model import load_simple_model
 from market_regime_detector import create_adaptive_prediction_system
 from peak_hour_optimizer import create_ultra_precise_prediction_system
 from performance_tracking_system import create_performance_tracking_system
@@ -77,23 +77,29 @@ class DominationMiner:
         """Load the trained domination model and systems"""
         logger.info("Loading domination system...")
 
-        save_dir = self.config.get('save_dir', 'domination_system')
-        model_path = os.path.join(save_dir, 'domination_ensemble.pth')
+        # Use simple working model for immediate deployment
+        model_path = 'simple_working_model.pth'
 
         if not os.path.exists(model_path):
-            raise FileNotFoundError(f"Domination model not found at {model_path}. Run training first.")
+            logger.warning(f"Simple working model not found at {model_path}. Creating one...")
+            from simple_working_model import create_and_save_simple_model
+            create_and_save_simple_model()
 
+        logger.info(f"Loading simple working model from: {model_path}")
         # Load model
-        self.model = load_advanced_ensemble(model_path, self.device.type)
+        self.model = load_simple_model(model_path, self.device.type)
 
         # Create inference optimizer
         self.inference_optimizer = create_inference_optimizer(self.model, self.device.type)
 
-        # Load scaler
-        import pickle
-        scaler_path = os.path.join(save_dir, 'feature_scaler.pkl')
-        with open(scaler_path, 'rb') as f:
-            self.scaler = pickle.load(f)
+        # Scaler is loaded with the model in simple_working_model.py
+        # It's stored in model.feature_scaler
+        if hasattr(self.model, 'feature_scaler') and self.model.feature_scaler:
+            self.scaler = self.model.feature_scaler
+            logger.info("✅ Scaler loaded from model")
+        else:
+            logger.warning("⚠️  No scaler found in model, predictions may be less accurate")
+            self.scaler = None
 
         # Initialize adaptive systems
         self.adaptive_system = create_adaptive_prediction_system(
@@ -116,7 +122,11 @@ class DominationMiner:
         features = np.array(raw_features).reshape(1, -1)
 
         # Scale features
-        if self.scaler:
+        if self.scaler and isinstance(self.scaler, dict):
+            # Simple dict-based scaler
+            features = (features - self.scaler.get('mean', 0)) / (self.scaler.get('std', 1) + 1e-8)
+        elif self.scaler and hasattr(self.scaler, 'transform'):
+            # sklearn-style scaler
             features = self.scaler.transform(features)
 
         # Reshape for model input (add sequence dimension)
@@ -202,13 +212,21 @@ class DominationMiner:
         # Prepare features
         features_tensor = self.prepare_market_data(market_data)
 
-        # Make prediction with uncertainty
+        # Make prediction with simple model
         prediction_start = datetime.now(timezone.utc)
-        predictions, uncertainties = self.inference_optimizer.predict_batch(features_tensor)
+        self.model.eval()
+        with torch.no_grad():
+            # Use features directly (already scaled)
+            features_input = features_tensor.squeeze(0)  # Remove batch dimension for simple model
+            point_pred, interval_pred = self.model(features_input.unsqueeze(0))  # Add batch dimension
+
         prediction_time = (datetime.now(timezone.utc) - prediction_start).total_seconds() * 1000
 
-        prediction_value = predictions[0, 0].item()
-        uncertainty = uncertainties[0, 0].item()
+        prediction_value = point_pred.item()
+        # Calculate uncertainty as interval width
+        lower_bound = interval_pred[0].item()
+        upper_bound = interval_pred[1].item()
+        uncertainty = (upper_bound - lower_bound) / prediction_value if prediction_value != 0 else 0.1
 
         # Get decision info
         should_predict, decision_info = self.should_make_prediction(market_data, current_time)
@@ -228,7 +246,7 @@ class DominationMiner:
         # Update prediction count
         self.prediction_count += 1
 
-        logger.info(".6f"
+        logger.info(f"Prediction made: {prediction_value:.6f} (confidence: {1-uncertainty:.3f})")
         return prediction_result
 
     def record_prediction_result(self, prediction_result: dict, actual_value: float = None,
@@ -254,7 +272,7 @@ class DominationMiner:
         # Update earnings
         self.total_earnings += reward
 
-        logger.info(".6f"
+        logger.info(f"Recorded prediction result - Reward: {reward:.6f}")
     def get_status(self) -> dict:
         """Get current miner status"""
         current_time = datetime.now(timezone.utc)
@@ -290,25 +308,29 @@ class DominationMiner:
         print("🎯 PRECOG DOMINATION MINER STATUS")
         print("="*60)
 
-        print("
-📊 PERFORMANCE:"        print(f"  Total Predictions: {status['total_predictions']}")
-        print(".6f"        print(".4f"        print(".1%"        print(".1%"        print(f"  Current Regime: {status['current_regime']}")
+        print("\n📊 PERFORMANCE:")
+        print(f"  Total Predictions: {status['total_predictions']}")
+        print(f"  Avg Prediction Time: {status['avg_prediction_time']:.6f}ms")
+        print(f"  Memory Usage: {status['memory_usage']:.4f}GB")
+        print(f"  GPU Usage: {status['gpu_usage']:.1f}%")
+        print(f"  CPU Usage: {status['cpu_usage']:.1f}%")
+        print(f"  Current Regime: {status['current_regime']}")
 
         if status['alerts']:
-            print("
-🚨 ALERTS:"            for alert in status['alerts']:
+            print("\n🚨 ALERTS:")
+            for alert in status['alerts']:
                 severity_icon = "🔴" if alert['severity'] == 'high' else "🟡"
                 print(f"  {severity_icon} {alert['message']}")
 
         next_peak = status['next_peak_window']
-        print("
-⏰ NEXT PEAK WINDOW:"        print(f"  Time: {next_peak['next_peak_start'].strftime('%Y-%m-%d %H:%M UTC')}")
+        print("\n⏰ NEXT PEAK WINDOW:")
+        print(f"  Time: {next_peak['next_peak_start'].strftime('%Y-%m-%d %H:%M UTC')}")
         print(f"  Wait: {next_peak['wait_minutes']} minutes")
         print(f"  Currently Peak: {next_peak['is_currently_peak']}")
 
         if status['recommendations']:
-            print("
-💡 RECOMMENDATIONS:"            for rec in status['recommendations']:
+            print("\n💡 RECOMMENDATIONS:")
+            for rec in status['recommendations']:
                 print(f"  • {rec}")
 
         print(f"\n⏰ Status Time: {status['timestamp']}")

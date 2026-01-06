@@ -1,0 +1,34 @@
+[Unit]
+Description=Precog Subnet 55 First Place Miner
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=ocean
+Group=ocean
+WorkingDirectory=/home/ocean/SN55
+Environment=PATH=/home/ocean/SN55/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=PYTHONPATH=/home/ocean/SN55/venv/lib/python3.10/site-packages
+Environment=DOMINATION_MODE=true
+ExecStart=/home/ocean/SN55/venv/bin/python3 precog/miners/miner.py --wallet.name precog_coldkey --wallet.hotkey miner_hotkey --subtensor.chain_endpoint wss://entrypoint-finney.opentensor.ai:443 --netuid 55 --logging.info --axon.port 8091 --neuron.device cuda --forward_function custom_model
+ExecStop=/bin/kill -TERM $MAINPID
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=precog-miner
+
+# Security settings
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ReadWritePaths=/home/ocean/SN55
+ProtectHome=read-only
+
+# Resource limits
+MemoryLimit=8G
+CPUQuota=200%
+
+[Install]
+WantedBy=multi-user.target

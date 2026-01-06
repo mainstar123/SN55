@@ -1,0 +1,35 @@
+[Unit]
+Description=Bittensor Subtensor Lite Node
+After=network.target
+
+[Service]
+Type=simple
+User=ocean
+WorkingDirectory=/home/ocean/SN55/subtensor
+ExecStart=/home/ocean/SN55/subtensor/target/release/node-subtensor \
+  --chain finney \
+  --base-path /var/lib/subtensor-lite \
+  --rpc-external \
+  --ws-external \
+  --rpc-cors all \
+  --pruning archive \
+  --db-cache 4096 \
+  --execution wasm \
+  --wasm-execution compiled \
+  --port 30333 \
+  --rpc-port 9933 \
+  --ws-port 9944 \
+  --telemetry-url "wss://telemetry.polkadot.io/submit/ 0" \
+  --name "OceanPredicTor-Lite"
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=subtensor-lite
+
+# Resource limits for stability
+LimitNOFILE=65536
+MemoryMax=12G
+
+[Install]
+WantedBy=multi-user.target

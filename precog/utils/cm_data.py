@@ -251,6 +251,113 @@ class CMData:
 
         return reference_rate_df.sort_values("time").reset_index(drop=True)
 
+    def get_recent_data(self, minutes: int = 60, asset: str = "btc") -> pd.DataFrame:
+        """
+        Get recent price data for a specific asset.
+
+        Args:
+            minutes: Number of minutes of historical data to fetch
+            asset: Asset symbol (btc, eth, tao_bittensor)
+
+        Returns:
+            DataFrame with columns: ['time', 'price', 'volume']
+        """
+        try:
+            import pytz
+            from datetime import datetime, timedelta
+
+            # Map asset names to CoinMetrics format
+            asset_mapping = {
+                "btc": "btc",
+                "eth": "eth",
+                "tao_bittensor": "tao"  # Bittensor TAO token
+            }
+
+            cm_asset = asset_mapping.get(asset.lower(), asset.lower())
+
+            # For TAO, we need to handle it differently as it might be 'tao' in CoinMetrics
+            if asset.lower() == "tao_bittensor":
+                # Try 'tao' first, fallback to 'tao_bittensor' if needed
+                try:
+                    price_df = self.get_CM_ReferenceRate(
+                        assets=["tao"],
+                        start=start_time,
+                        end=end_time
+                    )
+                    if price_df.empty:
+                        raise ValueError("TAO data not found")
+                except:
+                    # Fallback to direct asset name
+                    cm_asset = "tao_bittensor"
+
+            # Get data from last hour + buffer
+            end_time = datetime.now(pytz.UTC)
+            start_time = end_time - timedelta(minutes=minutes + 10)  # Extra buffer
+
+            bt.logging.debug(f"Fetching {minutes} minutes of {asset} data from CoinMetrics")
+
+            # Get price data (disable caching to avoid cross-asset contamination)
+            price_df = self.get_CM_ReferenceRate(
+                assets=[cm_asset],
+                start=start_time,
+                end=end_time,
+                use_cache=False  # Disable cache to get clean data per asset
+            )
+
+            if price_df.empty:
+                bt.logging.warning(f"No price data available for {asset}")
+                return pd.DataFrame()
+
+            # Filter to only the requested asset (in case cache had other assets)
+            if 'asset' in price_df.columns:
+                price_df = price_df[price_df['asset'] == cm_asset].copy()
+                if price_df.empty:
+                    bt.logging.warning(f"No data found for asset {cm_asset} after filtering")
+                    return pd.DataFrame()
+
+            # Rename columns to expected format
+            # CoinMetrics returns 'ReferenceRateUSD' column
+            if 'ReferenceRateUSD' in price_df.columns:
+                price_df = price_df.rename(columns={
+                    'ReferenceRateUSD': 'price'
+                })
+            elif f'{cm_asset}_price' in price_df.columns:
+                price_df = price_df.rename(columns={
+                    f'{cm_asset}_price': 'price'
+                })
+            else:
+                bt.logging.error(f"No price column found for {asset}. Available: {price_df.columns.tolist()}")
+                return pd.DataFrame()
+
+            # Add volume if available (many crypto assets don't have volume in reference rate)
+            if 'volume' in price_df.columns:
+                pass  # Already have volume
+            elif f'{cm_asset}_volume' in price_df.columns:
+                price_df = price_df.rename(columns={
+                    f'{cm_asset}_volume': 'volume'
+                })
+            else:
+                # Add dummy volume for assets without volume data
+                price_df['volume'] = 1.0
+
+            # Ensure we have the required columns
+            required_cols = ['time', 'price', 'volume']
+            if not all(col in price_df.columns for col in required_cols):
+                bt.logging.error(f"Missing required columns for {asset}. Available: {price_df.columns.tolist()}")
+                return pd.DataFrame()
+
+            # Sort by time and reset index
+            price_df = price_df.sort_values('time').reset_index(drop=True)
+
+            # Log success
+            bt.logging.debug(f"Successfully fetched {len(price_df)} data points for {asset}")
+
+            return price_df
+
+        except Exception as e:
+            bt.logging.error(f"Error fetching data for {asset}: {e}")
+            return pd.DataFrame()
+
     def clear_cache(self):
         """Clear the cache if needed"""
         self._cache = pd.DataFrame()

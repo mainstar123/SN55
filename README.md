@@ -231,9 +231,12 @@ make validator ENV_FILE=.env.validator
 ## Incentive Mechanism
 Please see the [Incentive mechanism Documentation](https://docs.coinmetrics.io/bittensor/precog-methodology) on the Coin Metrics docs site for an in-depth explanation of the mechanism.  These describe the process for evaluating each forecast type's performance and ranking Mines on that basis, including examples to grok the Interval Forecast.
 
-Briefly, miners are rewarded based on two factors:
-1. A point estimate for the price of BTC in USD one hour from prediction time
-2. An interval estimate (the minimum and maximum price of BTC over the next hour based on a 1s frequency)
+Briefly, miners are rewarded based on predictions for multiple assets:
+1. **BTC**: Point estimate for BTC price in USD one hour from prediction time + interval estimate
+2. **ETH**: Point estimate for ETH price in USD one hour from prediction time + interval estimate
+3. **TAO**: Point estimate for TAO (Bittensor) price in USD one hour from prediction time + interval estimate
+
+Each miner predicts all three assets simultaneously, with equal weighting (16.6% each for point and interval predictions).
 
 For more information, feel free to investigate [reward.py](https://github.com/coinmetrics/precog/blob/master/precog/validators/reward.py) or [base_miner.py](https://github.com/coinmetrics/precog/blob/master/precog/miners/base_miner.py)
 
